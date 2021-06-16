@@ -35,9 +35,16 @@ git push -u public main  # ensure repos have same git-tree
 Then modify the names of the source and destination repos in `.github/workflow/git-sync.yml` as instructed in [git-sync-action](https://github.com/marketplace/actions/git-sync-action). We are using ssh-names:
 ```yaml
 source_repo: "git@github.com:ivannz/wf_private"
+destination_repo: "git@github.com:ivannz/wf_public"
 ```
 
-Then push the workflow:
+Next, don't forget to fix the branch names:
+```yaml
+source_branch: "main"
+destination_branch: "main"
+```
+
+Finally, push the workflow:
 ```bash
 # in ../wf_private
 git add .github/workflow/git-sync.yml
