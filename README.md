@@ -29,6 +29,7 @@ cd ..
 
 Add workflow to the private repo
 --------------------------------
+Push some work into both repos:
 ```bash
 cd ../wf_private
 
@@ -36,7 +37,16 @@ touch README.md
 git commit -m'an empty readme'
 git push -u origin main  # just to make sure everything syncs,
 git push -u public main  # ensure repos have same git-tree
+```
 
+Then modify the names of the source and destination repos in `.github/workflow/git-sync.yml` as instructed in [git-sync-action](https://github.com/marketplace/actions/git-sync-action). We are using ssh-names:
+```yaml
+source_repo: "git@github.com:ivannz/wf_private"
+```
+
+Then push the workflow:
+```bash
+# in ../wf_private
 git add .github/workflow/git-sync.yml
 git commit -m'git-sync workflow'
 ```
