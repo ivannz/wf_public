@@ -1,0 +1,19 @@
+name: git-sync
+
+on: 
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  git-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:ivannz/wf_private"
+          source_branch: "main"
+          destination_repo: "git@github.com:ivannz/wf_public"
+          destination_branch: "main"
