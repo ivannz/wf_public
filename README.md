@@ -67,10 +67,10 @@ ssh-keygen -t rsa -b 4096 -C "username@email.org" \
 
 Then on github.com do:
 1. add the unique public keys (\*.pub) to `Repo Settings > Deploy keys` for each repository respectively and allow *write access for the destination repository*:
-  * copy contents of `.ssh/id_rsa_wf_private.pub` to deploy keys of `wf_private.git`
-  * copy contents of `.ssh/id_rsa_wf_public.pub` to deploy keys of `wf_public.git` and *check the write access flag*
+    * copy contents of `.ssh/id_rsa_wf_private.pub` to deploy keys of `wf_private.git`
+    * copy contents of `.ssh/id_rsa_wf_public.pub` to deploy keys of `wf_public.git` and *check the write access flag*
 
 2. add the private key(s) to `Repo > Settings > Secrets` for the **repo containing the action** `wf_private.git`:
-  * copy contents of `.ssh/id_rsa_wf_private` key to `SOURCE_SSH_PRIVATE_KEY` secret environment variable
-  * copy contents of `.ssh/id_rsa_wf_public` key to `DESTINATION_SSH_PRIVATE_KEY` secret environment variable
+    * copy contents of `.ssh/id_rsa_wf_private` key to `SOURCE_SSH_PRIVATE_KEY` secret environment variable
+    * copy contents of `.ssh/id_rsa_wf_public` key to `DESTINATION_SSH_PRIVATE_KEY` secret environment variable
 
